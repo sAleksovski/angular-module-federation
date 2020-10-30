@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "ui-ang": {
+      "projectType": "library",
+      "root": "projects/ui-ang",
+      "sourceRoot": "projects/ui-ang/src",
+      "prefix": "nd",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ui-ang/tsconfig.lib.json",
+            "project": "projects/ui-ang/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ui-ang/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ui-ang/src/test.ts",
+            "tsConfig": "projects/ui-ang/tsconfig.spec.json",
+            "karmaConfig": "projects/ui-ang/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ui-ang/tsconfig.lib.json",
+              "projects/ui-ang/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-module-federation"

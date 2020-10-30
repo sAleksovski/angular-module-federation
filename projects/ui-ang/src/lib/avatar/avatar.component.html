@@ -1,0 +1,9 @@
+<ng-container *ngIf="avatarUrl; else letterTemplate">
+  <span class="image" [style.background-image]="'url(' + avatarUrl + ')'"></span>
+</ng-container>
+
+<ng-template #letterTemplate>
+  <span class="letter">
+    <span>{{name[0] || '?'}}</span>
+  </span>
+</ng-template>
