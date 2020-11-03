@@ -277,6 +277,122 @@
           }
         }
       }
+    },
+    "contacts-details": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/apps/contacts-details",
+      "sourceRoot": "projects/apps/contacts-details/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/contacts-details",
+            "index": "projects/apps/contacts-details/src/index.html",
+            "main": "projects/apps/contacts-details/src/main.ts",
+            "polyfills": "projects/apps/contacts-details/src/polyfills.ts",
+            "tsConfig": "projects/apps/contacts-details/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/apps/contacts-details/src/favicon.ico",
+              "projects/apps/contacts-details/src/assets"
+            ],
+            "styles": [
+              "projects/apps/contacts-details/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/apps/contacts-details/src/environments/environment.ts",
+                  "with": "projects/apps/contacts-details/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "contacts-details:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "contacts-details:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "contacts-details:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/apps/contacts-details/src/test.ts",
+            "polyfills": "projects/apps/contacts-details/src/polyfills.ts",
+            "tsConfig": "projects/apps/contacts-details/tsconfig.spec.json",
+            "karmaConfig": "projects/apps/contacts-details/karma.conf.js",
+            "assets": [
+              "projects/apps/contacts-details/src/favicon.ico",
+              "projects/apps/contacts-details/src/assets"
+            ],
+            "styles": [
+              "projects/apps/contacts-details/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/apps/contacts-details/tsconfig.app.json",
+              "projects/apps/contacts-details/tsconfig.spec.json",
+              "projects/apps/contacts-details/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/apps/contacts-details/e2e/protractor.conf.js",
+            "devServerTarget": "contacts-details:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "contacts-details:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-module-federation"

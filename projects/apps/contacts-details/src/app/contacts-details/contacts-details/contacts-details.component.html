@@ -1,0 +1,7 @@
+<div class="contact-details" *ngIf="contact$ | async as contact; else notFoundTemplate">
+  <nd-avatar [avatarUrl]="contact.avatarUrl" [name]="contact.fullName" size="lg"></nd-avatar>
+  <div class="contact-details__name">{{ contact.fullName }}</div>
+  <div class="contact-details__company">{{ contact.company }}</div>
+</div>
+
+<ng-template #notFoundTemplate>Contact does not exist.</ng-template>

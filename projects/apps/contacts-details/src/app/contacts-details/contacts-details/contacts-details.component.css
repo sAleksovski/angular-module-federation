@@ -1,0 +1,22 @@
+.contact-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid #c3c3c3;
+  border-radius: 1rem;
+}
+
+.contact-details nd-avatar {
+  margin-bottom: 1rem;;
+}
+
+.contact-details__name {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.contact-details__company {
+  font-size: 1.5rem;
+}
