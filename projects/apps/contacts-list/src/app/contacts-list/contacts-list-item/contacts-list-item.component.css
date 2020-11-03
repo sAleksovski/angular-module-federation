@@ -1,0 +1,13 @@
+.contact-list-item {
+  display: flex;
+  align-items: center;
+}
+
+.contact-list-item__avatar {
+  margin-right: 1rem;
+}
+
+.contact-list-item__name {
+  font-size: 1rem;
+  font-weight: bold;
+}

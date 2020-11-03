@@ -9,6 +9,21 @@
   background-color: #ebecf0;
 }
 
+.image-sm {
+  width: 3rem;
+  height: 3rem;
+}
+
+.image-md {
+  width: 5rem;
+  height: 5rem;
+}
+
+.image-lg {
+  width: 10rem;
+  height: 10rem;
+}
+
 .letter {
   width: 3rem;
   height: 3rem;

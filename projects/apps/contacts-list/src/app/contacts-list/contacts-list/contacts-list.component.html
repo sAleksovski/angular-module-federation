@@ -1,0 +1,9 @@
+<h1>Contacts</h1>
+
+<div class="contacts-list">
+  <nd-contacts-list-item
+    class="contacts-list__item"
+    *ngFor="let contact of contacts" tabindex="0"
+    [contact]="contact"
+  ></nd-contacts-list-item>
+</div>

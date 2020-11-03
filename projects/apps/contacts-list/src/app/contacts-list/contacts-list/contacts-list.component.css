@@ -1,0 +1,25 @@
+.contacts-list {
+  border-radius: 1rem;
+}
+
+.contacts-list__item {
+  display: flex;
+  padding: 0.5rem;
+  border-bottom: 1px solid #cecece;
+  cursor: pointer;
+}
+
+.contacts-list__item:hover {
+  background-color: #cecece;
+}
+
+.contacts-list__item:first-child {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.contacts-list__item:last-child {
+  border-bottom: 0;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}

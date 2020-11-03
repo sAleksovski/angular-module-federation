@@ -1,5 +1,5 @@
 <ng-container *ngIf="avatarUrl; else letterTemplate">
-  <span class="image" [style.background-image]="'url(' + avatarUrl + ')'"></span>
+  <span class="image image-{{ size }}" [style.background-image]="'url(' + avatarUrl + ')'"></span>
 </ng-container>
 
 <ng-template #letterTemplate>
