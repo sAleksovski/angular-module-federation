@@ -4,18 +4,13 @@ import { ContactsDetailsComponent } from './contacts-details/contacts-details.co
 
 const routes: Routes = [
   {
-    path: 'contacts-list/:id',
-    component: ContactsDetailsComponent,
-  },
-  {
     path: '',
-    redirectTo: 'contacts-list/1',
-    pathMatch: 'full',
+    component: ContactsDetailsComponent,
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class ContactsDetailsRoutingModule {}

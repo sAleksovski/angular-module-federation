@@ -6,7 +6,7 @@ import { ContactsDetailsComponent } from './contacts-details/contacts-details.co
 
 @NgModule({
   declarations: [ContactsDetailsComponent],
-  imports: [CommonModule, ContactsDetailsRoutingModule, AvatarModule],
+  imports: [CommonModule, AvatarModule],
   exports: [ContactsDetailsRoutingModule],
 })
 export class ContactsDetailsModule {}

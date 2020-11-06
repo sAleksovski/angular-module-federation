@@ -5,5 +5,6 @@
     class="contacts-list__item"
     *ngFor="let contact of contacts" tabindex="0"
     [contact]="contact"
+    [routerLink]="[contact.id]"
   ></nd-contacts-list-item>
 </div>
