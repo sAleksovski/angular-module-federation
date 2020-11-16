@@ -63,7 +63,7 @@ const contactsDetailsConfig = {
     path: outputPath,
     chunkFilename: '[id].[chunkhash].js',
   },
-  mode: 'development',
+  mode: 'production',
 };
 
 module.exports = contactsDetailsConfig;

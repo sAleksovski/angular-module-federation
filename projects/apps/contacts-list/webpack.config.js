@@ -37,8 +37,9 @@ const contactsListConfig = {
       filename: 'remoteEntry.js',
       exposes: {
         './ContactsListModule': path.resolve(__dirname, './src/app/contacts-list/contacts-list.module.ts'),
+        // ContactsListWidgetModule: path.resolve(__dirname, './src/app/contacts-list/contacts-list-widget.module.ts'),
       },
-      shared: ['@angular/core', '@angular/common', '@angular/router', '@nd/ui-ang'],
+      shared: ['@angular/core', '@angular/common', '@angular/router', '@nd/ui-ang', '@nd/core'],
     }),
     new AotPlugin({
       skipCodeGeneration: false,
@@ -63,7 +64,7 @@ const contactsListConfig = {
     path: outputPath,
     chunkFilename: '[id].[chunkhash].js',
   },
-  mode: 'development',
+  mode: 'production',
 };
 
 module.exports = contactsListConfig;

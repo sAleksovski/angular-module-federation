@@ -65,7 +65,7 @@ const shellConfig = {
     chunkFilename: '[id].[chunkhash].js',
   },
   devtool: 'inline-source-map',
-  mode: 'development',
+  mode: 'production',
 };
 
 module.exports = shellConfig;
