@@ -23,7 +23,7 @@ const shellConfig = {
   },
   devServer: {
     contentBase: outputPath,
-    port: 3000,
+    port: 5000,
   },
   module: {
     rules: [
@@ -37,8 +37,8 @@ const shellConfig = {
   plugins: [
     new ModuleFederationPlugin({
       remotes: {
-        ContactsList: 'ContactsList@http://localhost:5000/remoteEntry.js',
-        ContactsDetails: 'ContactsDetails@http://localhost:5001/remoteEntry.js',
+        ContactsList: 'ContactsList@http://localhost:5001/remoteEntry.js',
+        ContactsDetails: 'ContactsDetails@http://localhost:5002/remoteEntry.js',
       },
       shared: ['@angular/core', '@angular/common', '@angular/router', '@nd/ui-ang'],
     }),

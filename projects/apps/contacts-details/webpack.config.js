@@ -19,7 +19,7 @@ const contactsDetailsConfig = {
   },
   devServer: {
     contentBase: outputPath,
-    port: 5001,
+    port: 5002,
   },
   module: {
     rules: [
@@ -58,7 +58,7 @@ const contactsDetailsConfig = {
   ],
   output: {
     // This is needed so that the shell can load the module from url, and not from local files
-    publicPath: 'http://localhost:5001/',
+    publicPath: 'http://localhost:5002/',
     filename: '[name].js',
     path: outputPath,
     chunkFilename: '[id].[chunkhash].js',
