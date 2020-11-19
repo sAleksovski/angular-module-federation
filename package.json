@@ -17,7 +17,9 @@
     "build:contacts-list": "webpack --config projects/apps/contacts-list/webpack.config.js",
     "serve:contacts-list": "http-server -p 5001 dist/contacts-list",
     "build:contacts-details": "webpack --config projects/apps/contacts-details/webpack.config.js",
-    "serve:contacts-details": "http-server -p 5002 dist/contacts-details"
+    "serve:contacts-details": "http-server -p 5002 dist/contacts-details",
+    "build:newsfeed": "webpack --config projects/apps/newsfeed/webpack.config.js",
+    "serve:newsfeed": "http-server -p 5003 dist/newsfeed"
   },
   "private": true,
   "dependencies": {

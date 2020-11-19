@@ -1,0 +1,5 @@
+<ng-container *ngIf="newsfeedItem$ | async as newsfeedItem; else notFoundTemplate">
+  <nd-newsfeed-item [newsfeedItem]="newsfeedItem"></nd-newsfeed-item>
+</ng-container>
+
+<ng-template #notFoundTemplate>Newsfeed item does not exist.</ng-template>

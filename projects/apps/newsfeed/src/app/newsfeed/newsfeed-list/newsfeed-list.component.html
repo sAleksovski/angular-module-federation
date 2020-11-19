@@ -1,0 +1,10 @@
+<h1>Newfseed</h1>
+
+<div class="newseed-list">
+  <nd-newsfeed-item
+    *ngFor="let newsfeedItem of newsfeedItems"
+    [routerLink]="[newsfeedItem.id]"
+    [newsfeedItem]="newsfeedItem"
+  >
+  </nd-newsfeed-item>
+</div>

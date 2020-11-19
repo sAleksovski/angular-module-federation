@@ -1,0 +1,12 @@
+<div class="newsfeed-list-item">
+  <nd-avatar
+    class="newsfeed-list-item__avatar"
+    [name]="newsfeedItem.fullName"
+    [avatarUrl]="newsfeedItem.avatarUrl"
+  ></nd-avatar>
+  <div>
+    <div class="newsfeed-list-item__name">{{ newsfeedItem.fullName }}</div>
+    <div class="newsfeed-list-item__company">{{ newsfeedItem.company }}</div>
+    <div class="newsfeed-list-item__content">{{ newsfeedItem.postContent }}</div>
+  </div>
+</div>

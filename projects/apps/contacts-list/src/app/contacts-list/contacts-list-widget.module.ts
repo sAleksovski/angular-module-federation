@@ -13,9 +13,9 @@ import { ContactsListComponent } from './contacts-list/contacts-list.component';
     RouterModule,
     AvatarModule,
     CoreModule.withWidgets({
-      ContactsListComponent
-    })
+      ContactsListComponent,
+    }),
   ],
-  exports: [ContactsListComponent]
+  exports: [ContactsListComponent],
 })
 export class ContactsListWidgetModule {}
