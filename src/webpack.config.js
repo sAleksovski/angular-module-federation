@@ -39,6 +39,7 @@ const shellConfig = {
       remotes: {
         ContactsList: 'ContactsList@http://localhost:5001/remoteEntry.js',
         ContactsDetails: 'ContactsDetails@http://localhost:5002/remoteEntry.js',
+        Newsfeed: 'Newsfeed@http://localhost:5003/remoteEntry.js',
       },
       shared: ['@angular/core', '@angular/common', '@angular/router', '@nd/ui-ang'],
     }),

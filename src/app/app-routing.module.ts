@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'newsfeed',
+    loadChildren: () => import('Newsfeed/NewsfeedModule').then((m) => m.NewsfeedModule),
+  },
+  {
     path: 'contacts-list',
     loadChildren: () => import('ContactsList/ContactsListModule').then((m) => m.ContactsListModule),
   },
@@ -12,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'contacts-list',
+    redirectTo: 'newsfeed',
     pathMatch: 'full',
   },
 ];
