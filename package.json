@@ -13,13 +13,13 @@
     "build:all": "concurrently \"npm run build:shell\" \"npm run build:contacts-list\" \"npm run build:contacts-details\" \"npm run build:newsfeed\"",
     "serve:all": "concurrently \"npm run serve:shell\" \"npm run serve:contacts-list\" \"npm run serve:contacts-details\" \"npm run serve:newsfeed\"",
     "build:shell": "webpack --config src/webpack.config.js",
-    "serve:shell": "http-server -p 5000 dist/angular-module-federation",
+    "serve:shell": "http-server -p 5000 -c-1 dist/angular-module-federation",
     "build:contacts-list": "webpack --config projects/apps/contacts-list/webpack.config.js",
-    "serve:contacts-list": "http-server -p 5001 dist/contacts-list",
+    "serve:contacts-list": "http-server -p 5001 -c-1 dist/contacts-list",
     "build:contacts-details": "webpack --config projects/apps/contacts-details/webpack.config.js",
-    "serve:contacts-details": "http-server -p 5002 dist/contacts-details",
+    "serve:contacts-details": "http-server -p 5002 -c-1 dist/contacts-details",
     "build:newsfeed": "webpack --config projects/apps/newsfeed/webpack.config.js",
-    "serve:newsfeed": "http-server -p 5003 dist/newsfeed"
+    "serve:newsfeed": "http-server -p 5003 -c-1 dist/newsfeed"
   },
   "private": true,
   "dependencies": {
