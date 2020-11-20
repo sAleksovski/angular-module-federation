@@ -9,6 +9,7 @@ const routes: Routes = [
   {
     path: 'contacts-list',
     loadChildren: () => import('ContactsList/ContactsListModule').then((m) => m.ContactsListModule),
+    pathMatch: 'full'
   },
   {
     path: 'contacts-list/:id',

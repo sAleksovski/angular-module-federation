@@ -12,9 +12,9 @@ const newsfeedConfig = {
   resolve: {
     mainFields: ['browser', 'module', 'main'],
     plugins: [
-      new TsconfigPathsPlugin({
-        configFile: path.resolve(__dirname, './tsconfig.app.json'),
-      }),
+      // new TsconfigPathsPlugin({
+      //   configFile: path.resolve(__dirname, './tsconfig.app.json'),
+      // }),
     ],
   },
   devServer: {
