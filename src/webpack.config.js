@@ -16,9 +16,9 @@ const shellConfig = {
   resolve: {
     mainFields: ['browser', 'module', 'main'],
     plugins: [
-      // new TsconfigPathsPlugin({
-      //   configFile: path.resolve(__dirname, '../tsconfig.app.json'),
-      // }),
+      new TsconfigPathsPlugin({
+        configFile: path.resolve(__dirname, '../tsconfig.app.json'),
+      }),
     ],
   },
   devServer: {
@@ -31,6 +31,13 @@ const shellConfig = {
       {
         test: /\.css$/,
         use: ['raw-loader'],
+      },
+      {
+        test: /environment/,
+        loader: 'file-replace-loader',
+        options: {
+          replacement: path.resolve(__dirname, './environments/environment.prod.ts'),
+        },
       },
     ],
   },
@@ -65,7 +72,6 @@ const shellConfig = {
     path: outputPath,
     chunkFilename: '[id].[chunkhash].js',
   },
-  devtool: 'inline-source-map',
   mode: 'production',
 };
 

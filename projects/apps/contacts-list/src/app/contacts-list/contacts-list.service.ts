@@ -47,7 +47,7 @@ export class ContactsListService {
     {
       id: '6',
       fullName: 'Josephus Miller',
-      avatarUrl: 'https://pbs.twimg.com/profile_images/1315709499194437632/62SG4nPm_400x400.jpg',
+      avatarUrl: 'https://www.indiewire.com/wp-content/uploads/2015/12/the-expanse.jpg',
       company: 'Ceres',
     },
   ];

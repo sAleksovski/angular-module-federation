@@ -10,8 +10,9 @@
     "e2e": "ng e2e",
     "format:check": "prettier --list-different \"{src,projects}/**/*.ts\"",
     "format": "prettier --write \"{src,projects}/**/*.ts\"",
-    "build:all": "concurrently \"npm run build:shell\" \"npm run build:contacts-list\" \"npm run build:contacts-details\" \"npm run build:newsfeed\"",
-    "serve:all": "concurrently \"npm run serve:shell\" \"npm run serve:contacts-list\" \"npm run serve:contacts-details\" \"npm run serve:newsfeed\"",
+    "build:all": "yarn build:ui-ang && concurrently \"yarn build:shell\" \"yarn build:contacts-list\" \"yarn build:contacts-details\" \"yarn build:newsfeed\"",
+    "serve:all": "concurrently \"yarn serve:shell\" \"yarn serve:contacts-list\" \"yarn serve:contacts-details\" \"yarn serve:newsfeed\"",
+    "build:ui-ang": "ng build ui-ang --prod && ngcc -s dist/ui-ang",
     "build:shell": "webpack --config src/webpack.config.js",
     "serve:shell": "http-server -p 5000 -c-1 dist/angular-module-federation",
     "build:contacts-list": "webpack --config projects/apps/contacts-list/webpack.config.js",
@@ -19,7 +20,8 @@
     "build:contacts-details": "webpack --config projects/apps/contacts-details/webpack.config.js",
     "serve:contacts-details": "http-server -p 5002 -c-1 dist/contacts-details",
     "build:newsfeed": "webpack --config projects/apps/newsfeed/webpack.config.js",
-    "serve:newsfeed": "http-server -p 5003 -c-1 dist/newsfeed"
+    "serve:newsfeed": "http-server -p 5003 -c-1 dist/newsfeed",
+    "postinstall": "ngcc && yarn build:ui-ang"
   },
   "private": true,
   "dependencies": {
@@ -31,8 +33,6 @@
     "@angular/platform-browser": "~11.0.0",
     "@angular/platform-browser-dynamic": "~11.0.0",
     "@angular/router": "~11.0.0",
-    "@nd/core": "^0.0.1",
-    "@nd/ui-ang": "^0.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -49,6 +49,7 @@
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "concurrently": "^5.3.0",
+    "file-replace-loader": "^1.3.2",
     "html-webpack-plugin": "^4.5.0",
     "http-server": "^0.12.3",
     "jasmine-core": "~3.6.0",

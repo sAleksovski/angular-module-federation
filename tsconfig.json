@@ -17,7 +17,7 @@
     ],
     "paths": {
       "@nd/ui-ang": [
-        "projects/ui-ang/src/public-api.ts"
+        "dist/ui-ang"
       ]
     }
   }
