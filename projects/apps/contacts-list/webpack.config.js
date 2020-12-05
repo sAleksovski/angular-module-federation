@@ -4,8 +4,31 @@ const path = require('path');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 
-const outputPath = path.join(__dirname, './../../../dist/contacts-list');
+const IS_GH = !!process.env.GH;
+
+const port = 5001;
+
+const outputPath = IS_GH
+  ? path.join(__dirname, './../../../dist/gh-pages/contacts-list')
+  : path.join(__dirname, './../../../dist/contacts-list');
+
+const devServer = {
+  contentBase: outputPath,
+  ...(IS_GH ? {} : { port }),
+};
+
+const htmlReplacementPlugin = new HtmlReplaceWebpackPlugin([
+  {
+    pattern: '<base href="/">',
+    replacement: '<base href="/contacts-list">',
+  },
+]);
+
+const ghPlugins = IS_GH ? [htmlReplacementPlugin] : [];
+
+const publicPath = IS_GH ? '/contacts-list/' : `http://localhost:${port}/`;
 
 const contactsListConfig = {
   entry: [path.resolve(__dirname, './src/polyfills.ts'), path.resolve(__dirname, './src/main.ts')],
@@ -17,10 +40,7 @@ const contactsListConfig = {
       }),
     ],
   },
-  devServer: {
-    contentBase: outputPath,
-    port: 5001,
-  },
+  devServer,
   module: {
     rules: [
       { test: /\.ts$/, loader: '@ngtools/webpack' },
@@ -63,10 +83,11 @@ const contactsListConfig = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html'),
     }),
+    ...ghPlugins,
   ],
   output: {
     // This is needed so that the shell can load the module from url, and not from local files
-    publicPath: 'http://localhost:5001/',
+    publicPath,
     filename: '[name].js',
     path: outputPath,
     chunkFilename: '[id].[chunkhash].js',
