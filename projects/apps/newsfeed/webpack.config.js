@@ -11,7 +11,7 @@ const IS_GH = !!process.env.GH;
 const port = 5003;
 
 const outputPath = IS_GH
-  ? path.join(__dirname, './../../../dist/gh-pages/newsfeed')
+  ? path.join(__dirname, './../../../dist/angular-module-federation/newsfeed')
   : path.join(__dirname, './../../../dist/newsfeed');
 
 const devServer = {
@@ -22,13 +22,13 @@ const devServer = {
 const htmlReplacementPlugin = new HtmlReplaceWebpackPlugin([
   {
     pattern: '<base href="/">',
-    replacement: '<base href="/newsfeed">',
+    replacement: '<base href="/angular-module-federation/newsfeed/">',
   },
 ]);
 
 const ghPlugins = IS_GH ? [htmlReplacementPlugin] : [];
 
-const publicPath = IS_GH ? '/newsfeed/' : `http://localhost:${port}/`;
+const publicPath = IS_GH ? '/angular-module-federation/newsfeed/' : `http://localhost:${port}/`;
 
 const newsfeedConfig = {
   entry: [path.resolve(__dirname, './src/polyfills.ts'), path.resolve(__dirname, './src/main.ts')],

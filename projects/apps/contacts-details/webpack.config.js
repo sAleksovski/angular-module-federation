@@ -11,7 +11,7 @@ const IS_GH = !!process.env.GH;
 const port = 5002;
 
 const outputPath = IS_GH
-  ? path.join(__dirname, './../../../dist/gh-pages/contacts-details')
+  ? path.join(__dirname, './../../../dist/angular-module-federation/contacts-details')
   : path.join(__dirname, './../../../dist/contacts-details');
 
 const devServer = {
@@ -22,13 +22,13 @@ const devServer = {
 const htmlReplacementPlugin = new HtmlReplaceWebpackPlugin([
   {
     pattern: '<base href="/">',
-    replacement: '<base href="/contacts-details">',
+    replacement: '<base href="/angular-module-federation/contacts-details/">',
   },
 ]);
 
 const ghPlugins = IS_GH ? [htmlReplacementPlugin] : [];
 
-const publicPath = IS_GH ? '/contacts-details/' : `http://localhost:${port}/`;
+const publicPath = IS_GH ? '/angular-module-federation/contacts-details/' : `http://localhost:${port}/`;
 
 const contactsDetailsConfig = {
   entry: [path.resolve(__dirname, './src/polyfills.ts'), path.resolve(__dirname, './src/main.ts')],

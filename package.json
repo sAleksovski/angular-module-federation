@@ -13,7 +13,7 @@
     "build:all": "yarn build:ui-ang && concurrently \"yarn build:shell\" \"yarn build:contacts-list\" \"yarn build:contacts-details\" \"yarn build:newsfeed\"",
     "serve:all": "concurrently \"yarn serve:shell\" \"yarn serve:contacts-list\" \"yarn serve:contacts-details\" \"yarn serve:newsfeed\"",
     "build:gh": "GH=true yarn build:all",
-    "serve:gh": "http-server -p 8000 -c-1 dist/gh-pages",
+    "serve:gh": "http-server -p 8000 -c-1 dist",
     "build:ui-ang": "ng build ui-ang --prod && ngcc -s dist/ui-ang",
     "build:shell": "webpack --config src/webpack.config.js",
     "serve:shell": "http-server -p 5000 -c-1 dist/angular-module-federation",

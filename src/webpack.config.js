@@ -4,19 +4,29 @@ const path = require('path');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 
 const IS_GH = !!process.env.GH;
 
 const port = 5000;
 
-const outputPath = IS_GH
-  ? path.join(__dirname, './../dist/gh-pages')
-  : path.join(__dirname, './../dist/angular-module-federation');
+const outputPath = path.join(__dirname, './../dist/angular-module-federation');
 
 const devServer = {
   contentBase: outputPath,
   ...(IS_GH ? {} : { port }),
 };
+
+const htmlReplacementPlugin = new HtmlReplaceWebpackPlugin([
+  {
+    pattern: '<base href="/">',
+    replacement: '<base href="/angular-module-federation/">',
+  },
+]);
+
+const ghPlugins = IS_GH ? [htmlReplacementPlugin] : [];
+
+const publicPath = IS_GH ? '/angular-module-federation/' : '';
 
 const localRemotes = {
   ContactsList: 'ContactsList@http://localhost:5001/remoteEntry.js',
@@ -25,9 +35,9 @@ const localRemotes = {
 };
 
 const ghRemotes = {
-  ContactsList: 'ContactsList@/contacts-list/remoteEntry.js',
-  ContactsDetails: 'ContactsDetails@/contacts-details/remoteEntry.js',
-  Newsfeed: 'Newsfeed@/newsfeed/remoteEntry.js',
+  ContactsList: 'ContactsList@/angular-module-federation/contacts-list/remoteEntry.js',
+  ContactsDetails: 'ContactsDetails@/angular-module-federation/contacts-details/remoteEntry.js',
+  Newsfeed: 'Newsfeed@/angular-module-federation/newsfeed/remoteEntry.js',
 };
 
 const remotes = IS_GH ? ghRemotes : localRemotes;
@@ -83,9 +93,10 @@ const shellConfig = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './index.html'),
     }),
+    ...ghPlugins,
   ],
   output: {
-    publicPath: '',
+    publicPath,
     filename: '[id].[name].js',
     path: outputPath,
     chunkFilename: '[id].[chunkhash].js',
